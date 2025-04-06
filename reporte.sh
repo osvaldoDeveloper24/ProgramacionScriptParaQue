@@ -2,7 +2,7 @@
 #Producto más vendido
 ventas_diarias="ventas_diarias.csv"
 
-function producto_mas_vendido() {
+function Producto_mas_vendido_y_monto_total() {
     # Declarar el arrays asociativo
     declare -A productos  # para contar cuántas veces se vendió cada producto.
     declare -A total_por_producto # para acumular el total de ventas de cada producto.
@@ -36,5 +36,22 @@ function producto_mas_vendido() {
     fi
 }
 
+while true; do
+    echo "-----------------------------------------------------------------"
+    echo "\n¿ Qué te gustaría obtener?"
+    echo "-----------------------------------------------------------------"
+    echo "1) Total de ventas por mes"
+    echo "2) El producto más vendido y el monto total anual"
+    echo "3) El cliente más frecuente"
+    echo "4) Salir"
+    
+    read -p "Seleccione una opción: " opcion
 
-producto_mas_vendido
+    case $opcion in
+        1) total_ventas_por_mes ;;
+        2) Producto_mas_vendido_y_monto_total ;;
+        3) cliente_mas_frecuente ;;
+        4) echo "Saliendo..."; exit ;;
+        *) echo "Opción no válida" ;;
+    esac
+done
